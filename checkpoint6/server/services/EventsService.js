@@ -20,10 +20,14 @@ class EventsService {
     return event
   }
 
-  async editEvent(id, eventData) {
-    const event = await this.getEventsById(id)
+  async editEvent(eventId, userId, eventData) {
+    const event = await this.getEventsById(eventId)
     if (event.isCanceled) {
       throw new BadRequest('This event has already been canceled')
+    }
+    // @ts-ignore
+    if (event.creatorId.toString() != userId) {
+      throw new Forbidden('This is not your event to edit')
     }
 
 
@@ -33,7 +37,6 @@ class EventsService {
     event.location = eventData.location || event.location
     event.capacity = eventData.capacity || event.capacity
     event.startDate = eventData.startDate || event.startDate
-    event.isCanceled = eventData.isCanceled || event.isCanceled
     event.type = eventData.type || event.type
 
     await event.save()

@@ -1,6 +1,5 @@
 import { dbContext } from "../db/DbContext"
 import { BadRequest, Forbidden } from "../utils/Errors"
-import { logger } from "../utils/Logger"
 
 class TicketsService {
   async getAccountTickets(accountId) {
@@ -9,18 +8,20 @@ class TicketsService {
 
   }
   async buyTicket(newTicket) {
-    // const event = await dbContext.Events.findById(newTicket.eventId)
-    // I'm able to manipulate event capacity but not send the manipulated data to the response
+    const event = await dbContext.Events.findById(newTicket.eventId)
     // @ts-ignore
-    // logger.log(event.capacity)
+    event.capacity -= 1
+    // @ts-ignore
+    await event.save()
 
-    // // @ts-ignore
-    // event.capacity -= 1
+    // @ts-ignore
+    if (event.capacity <= 0) {
+      throw new BadRequest('There are no more tickets available for this event')
+    }
+
     const ticket = await dbContext.Tickets.create(newTicket)
     await ticket.populate('profile', 'name picture')
     await ticket.populate('event')
-    // @ts-ignore
-    // logger.log(event.capacity)
     return ticket
   }
   async getTicketsByEventId(eventId) {
@@ -38,7 +39,13 @@ class TicketsService {
       throw new Forbidden('You cannot refund this ticket')
     }
     await ticket.remove()
+    const event = await dbContext.Events.findById(ticket.eventId)
+    // @ts-ignore
+    event.capacity += 1
+    // @ts-ignore
+    await event.save()
     return 'This ticket has been refunded to your account'
+
   }
 
 
