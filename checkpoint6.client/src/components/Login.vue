@@ -9,7 +9,6 @@
       <div class="dropdown-toggle selectable my-3" data-bs-toggle="dropdown" aria-expanded="false" id="authDropdown">
         <div class="text-center" v-if="account.picture || user.picture">
           <img :src="account.picture || user.picture" alt="account photo" height="75" class="rounded" /><br>
-          <span class="text-light">{{ account.name || user.name }}</span>
         </div>
       </div>
 

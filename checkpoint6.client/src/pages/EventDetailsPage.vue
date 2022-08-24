@@ -12,8 +12,18 @@
             <h6>{{ event.location }}</h6>
             <p>{{ event.description }}</p>
           </div>
-          <div>
-            <h6 class="text-end">Available Tickets: {{ event.capacity }}</h6>
+          <div class="text-end">
+            <h6>Available Tickets: {{ event.capacity }}</h6>
+            <div v-if="event.capacity > 0">
+              <button class="btn btn-primary my-3" @click="attendEvent()">
+                Attend Event
+              </button>
+            </div>
+            <div v-else>
+              <button class="btn btn-danger my-3" @click="attendEvent()" disabled>
+                Sold Out
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -25,8 +35,8 @@
     </div>
     <div class="col-md-9 bg-dark my-3 p-4">
       <CommentForm />
-      <div>
-
+      <div v-for="c in comments" :key="c.id">
+        <CommentCard :comment="c" />
       </div>
     </div>
   </div>
@@ -85,7 +95,20 @@ export default {
     });
     return {
       event: computed(() => AppState.activeEvent),
-      tickets: computed(() => AppState.ticketHolders)
+      tickets: computed(() => AppState.ticketHolders),
+      comments: computed(() => AppState.comments),
+
+      async attendEvent() {
+        try {
+          let newTicket = {
+            eventId: AppState.activeEvent.id
+          }
+          await ticketsService.attendEvent(newTicket)
+        } catch (error) {
+          logger.error('[attending event]', error)
+          Pop.error(error)
+        }
+      }
     };
   },
   components: { Ticket }
