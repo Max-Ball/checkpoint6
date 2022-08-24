@@ -1,36 +1,53 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo" class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="row">
+    <div>
+      <h1 class="my-2">CHECKPOINT 6</h1>
+    </div>
+    <div class="col-md-12 bg-dark">
+      <div class="row justify-content-evenly py-2">
+        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = ''">All</div>
+        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'concert'">Concert</div>
+        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'convention'">Convention</div>
+        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'sport'">Sport</div>
+        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'digital'">Digital</div>
+      </div>
+    </div>
+    <div class="col-md-3" v-for="e in events" :key="e.id">
+      <EventCard :event="e" />
     </div>
   </div>
 </template>
 
 <script>
+import { logger } from '../utils/Logger';
+import { eventsService } from '../services/eventsService'
+import Pop from '../utils/Pop';
+import { onMounted } from 'vue';
+import { computed, ref } from '@vue/reactivity';
+import { AppState } from '../AppState';
+
 export default {
-  name: 'Home'
+  setup() {
+    const filterEvent = ref('')
+    async function getEvents() {
+      try {
+        await eventsService.getEvents()
+      } catch (error) {
+        logger.error('[getting events]', error)
+        Pop.error
+      }
+    }
+
+    onMounted(() => {
+      getEvents()
+    })
+    return {
+      filterEvent,
+      events: computed(() => AppState.events.filter(e => filterEvent.value ? e.type == filterEvent.value : true))
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
-.home{
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
-  .home-card{
-    width: 50vw;
-    > img{
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-}
 </style>

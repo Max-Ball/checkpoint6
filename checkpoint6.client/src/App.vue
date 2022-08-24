@@ -1,15 +1,19 @@
 <template>
-  <header>
+  <!-- <header>
     <Navbar />
-  </header>
-  <main>
-    <router-view />
-  </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+  </header> -->
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-md-11">
+        <router-view />
+      </main>
+      <div class="col-md-1 profile-bar">
+        <Login />
+      </div>
+
     </div>
-  </footer>
+
+  </div>
 </template>
 
 <script>
@@ -27,4 +31,9 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+
+.profile-bar {
+  background-color: rgb(28, 24, 28);
+  height: 100vh;
+}
 </style>
