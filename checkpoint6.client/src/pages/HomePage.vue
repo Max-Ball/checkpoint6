@@ -1,15 +1,23 @@
 <template>
   <div class="row">
-    <div>
-      <h1 class="my-2">CHECKPOINT 6</h1>
-    </div>
+    <h1 class="my-2 title-font">Tower Events</h1>
     <div class="col-md-12 bg-dark category-bar">
       <div class="row justify-content-evenly py-2">
-        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = ''">All</div>
-        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'concert'">Concert</div>
-        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'convention'">Convention</div>
-        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'sport'">Sport</div>
-        <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'digital'">Digital</div>
+        <div class="col-md-2 pt-2 btn btn-outline-light m-0" @click="filterEvent = ''" title="All Events">
+          <h5 class="p-0 m-0">All</h5>
+        </div>
+        <div class="col-md-2 pt-2 btn btn-outline-light m-0" @click="filterEvent = 'concert'" title="Concert">
+          <h5 class="p-0 m-0">Concert</h5>
+        </div>
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0" @click="filterEvent = 'convention'" title="Convention">
+          <h5 class="p-0 m-0">Convention</h5>
+        </div>
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0" @click="filterEvent = 'sport'" title="Sport">
+          <h5 class="p-0 m-0">Sport</h5>
+        </div>
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0" @click="filterEvent = 'digital'" title="Digital">
+          <h5 class="p-0 m-0">Digital</h5>
+        </div>
       </div>
     </div>
     <div class="col-md-3" v-for="e in events" :key="e.id">
@@ -53,5 +61,12 @@ export default {
 .category-bar {
   background: rgb(74, 78, 105);
   background: linear-gradient(90deg, rgba(74, 78, 105, 1) 97%, rgba(50, 59, 79) 100%);
+}
+
+.title-font {
+  font-family: 'Righteous', cursive;
+  font-size: 4em;
+  color: rgb(240, 192, 0);
+  text-shadow: 2px 2px 2px rgb(31, 29, 29);
 }
 </style>

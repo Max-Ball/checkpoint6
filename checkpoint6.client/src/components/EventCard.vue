@@ -6,18 +6,18 @@
         <div class="card-img-overlay d-flex align-items-end justify-content-start p-0 py-0 m-0 container-fluid">
           <div class="glass-card rounded-bottom">
             <div class="px-3">
-              <h4 class="card-title m-0">{{ event.name }}</h4>
-              <p class="card-text m-0">{{ new Date(event.startDate).toLocaleDateString() }}</p>
+              <h2 class="card-title m-0">{{ event.name }}</h2>
+              <h5 class="card-text m-0">{{ new Date(event.startDate).toLocaleDateString() }}</h5>
               <div>
-                <h6 class="d-md-none d-block">{{ event.location }}</h6>
-                <h6 v-if="event.capacity > 0" class="text-end"><span class="text-primary fs-5">{{ event.capacity
-                }}</span> tickets left</h6>
-                <h4 v-else class="text-end text-danger">SOLD OUT!</h4>
+                <h5 class="d-md-none d-block">{{ event.location }}</h5>
+                <h5 v-if="event.capacity > 0" class="text-end"><span class="text-primary fs-5">{{ event.capacity
+                }}</span> tickets left</h5>
+                <h3 v-else class="text-end text-danger">SOLD OUT!</h3>
               </div>
             </div>
-            <h6 v-if="event.isCanceled" class="card-text text-center rounded-bottom px-2 py-1 bg-danger">Event has been
+            <h4 v-if="event.isCanceled" class="card-text text-center rounded-bottom px-2 py-1 bg-danger">Event has been
               cancelled
-            </h6>
+            </h4>
           </div>
         </div>
       </div>
@@ -54,8 +54,8 @@ export default {
 
 .glass-card {
   background: rgba(76, 66, 66, 0.4);
-  backdrop-filter: blur(3px);
-  text-shadow: 1px 1px 2px rgb(31, 29, 29);
+  backdrop-filter: blur(5px);
+  text-shadow: 2px 2px 2px rgb(31, 29, 29);
   color: #f2e9e4 !important;
   width: 100%;
 }

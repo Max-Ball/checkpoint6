@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: #323b4f;
+  font-family: 'Teko', sans-serif;
 }
 
 main {
@@ -40,4 +41,23 @@ select {
 form:invalid button[type="submit"] {
   filter: grayscale(1);
   pointer-events: none;
+}
+
+.btn {
+  background-color: rgb(240, 192, 0) !important;
+  border: 2px solid #323b4f !important;
+  color: #f2e9e4 !important;
+  text-shadow: 1px 1px 1px rgb(31, 29, 29);
+}
+
+.btn:hover {
+  background-color: #323b4f !important;
+  border: 2px solid rgb(240, 192, 0) !important;
+  color: rgb(240, 192, 0) !important;
+  text-shadow: 1px 1px 1px rgb(31, 29, 29);
+}
+
+.accent-font {
+  color: rgb(240, 192, 0);
+  text-shadow: 1px 1px 1px rgb(31, 29, 29);
 }

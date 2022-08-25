@@ -1,4 +1,5 @@
 <template>
+  <h1 class="my-2 title-font">Tower Events</h1>
   <div class="row justify-content-center m-5">
     <!--div below is where I need to hit grayscale css-->
     <div :class="{ grayscale: event.isCanceled }">
@@ -11,36 +12,36 @@
             <div>
               <i v-if="event.creatorId == account.id" class="mdi mdi-delete fs-5 dropdown-item selectable text-end"
                 @click="deleteEvent(event.id)"></i>
-              <h5 class="text-end">{{ new Date(event.startDate).toLocaleDateString() }}</h5>
-              <h4>{{ event.name }}</h4>
-              <h6>{{ event.location }}</h6>
-              <p>{{ event.description }}</p>
+              <h4 class="text-end">{{ new Date(event.startDate).toLocaleDateString() }}</h4>
+              <h1 class="m-0">{{ event.name }}</h1>
+              <h2 class="m-0">{{ event.location }}</h2>
+              <h4 class="">{{ event.description }}</h4>
             </div>
             <div class="text-end">
-              <h6>Available Tickets: {{ event.capacity }}</h6>
+              <h5>Available Tickets: <span class="accent-font fs-1 ps-2"> {{ event.capacity }}</span></h5>
               <div v-if="event.isCanceled">
-                <button class="btn btn-warning my-3" disabled>
+                <button class="btn btn-warning my-1" disabled>
                   Event Canceled
                 </button>
               </div>
               <div v-else-if="event.capacity > 0 && !isAttending">
-                <button class="btn btn-primary my-3" @click="attendEvent()">
+                <button class="btn btn-primary my-1 elevation-4" @click="attendEvent()">
                   Attend Event
                 </button>
               </div>
               <div v-else-if="event.capacity <= -1">
-                <button class="btn btn-danger my-3" disabled>
+                <button class="btn btn-danger my-1 elevation-4" disabled>
                   Event Over Capacity!
                 </button>
               </div>
               <div v-else-if="event.capacity == 0">
-                <button class="btn btn-warning my-3" disabled>
+                <button class="btn btn-warning my-1 elevation-4" disabled>
                   Sold Out
                 </button>
               </div>
               <div v-else>
-                <button class="btn btn-danger my-3" @click="refundTicket()">
-                  Refund your ticket
+                <button class="btn btn-danger my-1 elevation-4" @click="refundTicket()">
+                  <h4 class="m-0">Refund your Ticket</h4>
                 </button>
               </div>
             </div>
@@ -48,7 +49,8 @@
         </div>
       </div>
       <div class="container-fluid bg-card rounded elevation-5 p-3 d-flex align-items-center">
-        <h4 class="me-2">See who is attending:</h4>
+        <h2 v-if="event.isCanceled == false" class="me-2 accent-font my-0">See who is attending:</h2>
+        <h2 v-else class="me-2 my-0 accent-font">See was going to attend:</h2>
         <div v-for="t in tickets" :key="t.id">
           <Ticket :ticket="t" />
         </div>
@@ -182,5 +184,11 @@ export default {
 .bg-card {
   background-color: #4a4e69;
   color: #f2e9e4;
+}
+
+.title-font {
+  font-family: 'Righteous', cursive;
+  font-size: 4em;
+  color: rgb(240, 192, 0);
 }
 </style>
