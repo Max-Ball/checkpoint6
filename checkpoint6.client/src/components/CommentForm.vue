@@ -4,9 +4,11 @@
       <textarea class="container-fluid" name="" id="" rows="3" v-model="editable.body"
         placeholder="Add your comment here..."></textarea><br>
       <div class="text-end">
-        <button class="btn btn-primary my-3">
-          Add Comment
-        </button>
+        <div>
+          <button class="btn btn-primary my-3">
+            Add Comment
+          </button>
+        </div>
       </div>
     </form>
   </div>

@@ -34,7 +34,9 @@ export default {
 @import "./assets/scss/main.scss";
 
 .profile-bar {
-  background-color: rgb(28, 24, 28);
+  background: rgb(74, 78, 105);
+  background: linear-gradient(-90deg, rgba(74, 78, 105, 1) 5%, rgba(50, 59, 79) 100%);
+
   height: 100vh;
 }
 </style>

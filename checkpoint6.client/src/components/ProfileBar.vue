@@ -9,24 +9,29 @@
       Account
     </h5>
   </router-link>
-  <button class="btn btn-info">
+  <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#event-modal">
     <i class="mdi mdi-plus"></i>Event
   </button>
+  <EventForm />
 </template>
 
 
 
 <script>
+
+
 export default {
 
   setup() {
 
-    return {};
+    return {
+
+    };
   },
 };
 </script>
 
 
 
-<style>
+<style lang="scss" scoped>
 </style>
