@@ -4,8 +4,8 @@
       <img class="profile-pic me-3" :src="comment.creator.picture" alt="" height="70" width="70"
         :title="comment.creator.name">
       <div class="bg-light text-dark rounded p-2 container-fluid">
-        <h5 class="d-flex justify-content-between">{{ comment.creator.name }} <i class="mdi mdi-delete selectable"
-            @click="deleteComment()"></i></h5>
+        <h5 class="d-flex justify-content-between">{{ comment.creator.name }} <i v-if="comment.creatorId == account.id"
+            class="mdi mdi-delete selectable" title="delete comment" @click="deleteComment()"></i></h5>
         {{ comment.body }}
       </div>
     </div>
@@ -15,6 +15,8 @@
 
 
 <script>
+import { computed } from '@vue/reactivity';
+import { AppState } from '../AppState';
 import { commentsService } from '../services/CommentsService';
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
@@ -26,6 +28,7 @@ export default {
   setup(props) {
 
     return {
+      account: computed(() => AppState.account),
 
       async deleteComment() {
         try {

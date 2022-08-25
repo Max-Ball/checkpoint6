@@ -3,7 +3,7 @@
     <div>
       <h1 class="my-2">CHECKPOINT 6</h1>
     </div>
-    <div class="col-md-12 bg-dark">
+    <div class="col-md-12 bg-dark category-bar">
       <div class="row justify-content-evenly py-2">
         <div class="col-md-2 btn btn-outline-light" @click="filterEvent = ''">All</div>
         <div class="col-md-2 btn btn-outline-light" @click="filterEvent = 'concert'">Concert</div>
@@ -50,4 +50,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.category-bar {
+  background: rgb(74, 78, 105);
+  background: linear-gradient(90deg, rgba(74, 78, 105, 1) 97%, rgba(50, 59, 79) 100%);
+}
 </style>

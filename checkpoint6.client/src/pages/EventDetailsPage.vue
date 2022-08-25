@@ -79,6 +79,7 @@ import { commentsService } from '../services/CommentsService';
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
 import Ticket from '../components/Ticket.vue';
+import { router } from '../router';
 
 export default {
   setup() {
@@ -154,13 +155,15 @@ export default {
 
       async deleteEvent() {
         try {
-          const yes = await Pop.confirm('Are you sure you want to delete this event?')
+          const yes = await Pop.confirm('Are you sure you want to cancel this event?')
           if (!yes) {
             return
           }
           await eventsService.deleteEvent(route.params.eventId)
+          router.push({ name: 'Home' })
         } catch (error) {
-          logger.error('[deleting event]')
+          logger.error('[deleting event]', error)
+          Pop.error(error)
         }
       }
     };

@@ -8,9 +8,6 @@
         </div>
       </div>
     </div>
-    <div class="col-md-12">
-      Upcoming Events
-    </div>
   </div>
 </template>
 
