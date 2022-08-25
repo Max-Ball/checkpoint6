@@ -19,8 +19,13 @@
                 Attend Event
               </button>
             </div>
+            <div v-else-if="event.capacity <= -1">
+              <button class="btn btn-danger my-3" disabled>
+                Event Over Capacity!
+              </button>
+            </div>
             <div v-else>
-              <button class="btn btn-danger my-3" @click="attendEvent()" disabled>
+              <button class="btn btn-warning my-3" disabled>
                 Sold Out
               </button>
             </div>
@@ -28,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid bg-dark p-3">
+    <div class="container-fluid bg-dark p-3 d-flex">
       <div v-for="t in tickets" :key="t.id">
         <Ticket :ticket="t" />
       </div>
@@ -101,7 +106,8 @@ export default {
       async attendEvent() {
         try {
           let newTicket = {
-            eventId: AppState.activeEvent.id
+            eventId: AppState.activeEvent.id,
+            accountId: AppState.account.id
           }
           await ticketsService.attendEvent(newTicket)
         } catch (error) {

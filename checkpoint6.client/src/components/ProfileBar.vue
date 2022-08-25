@@ -10,7 +10,7 @@
     </h5>
   </router-link>
   <button class="btn btn-info">
-    Add Event
+    <i class="mdi mdi-plus"></i>Event
   </button>
 </template>
 

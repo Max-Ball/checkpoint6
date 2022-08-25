@@ -19,6 +19,7 @@ class TicketsService {
       throw new BadRequest('There are no more tickets available for this event')
     }
 
+
     const ticket = await dbContext.Tickets.create(newTicket)
     await ticket.populate('profile', 'name picture')
     await ticket.populate('event')

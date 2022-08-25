@@ -9,8 +9,11 @@ class TicketsService {
   }
 
   async attendEvent(newTicket) {
-    const res = await api.post('/api/tickets', newTicket)
-    AppState.ticketHolders.push(res.data)
+    if (!newTicket.accountId) {
+      const res = await api.post('/api/tickets', newTicket)
+      AppState.ticketHolders.push(res.data)
+    }
+    throw new Error("You're already attending this event")
   }
 
 }
