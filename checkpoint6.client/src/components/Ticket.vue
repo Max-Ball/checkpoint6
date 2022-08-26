@@ -1,5 +1,5 @@
 <template>
-  <img class="profile-pic mx-1" :src="ticket.profile.picture" alt="" height="50" width="50"
+  <img class="profile-pic mx-1" :src="ticket.profile.picture" alt="profile-picture" height="50" width="50"
     :title="ticket.profile.name">
 </template>
 

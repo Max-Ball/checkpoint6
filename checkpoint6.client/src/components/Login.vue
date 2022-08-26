@@ -1,6 +1,6 @@
 <template>
   <span class="navbar-text my-5">
-    <button class="btn selectable text-success lighten-30 text-uppercase my-5 my-lg-0" title="Login" @click="login"
+    <button class="btn selectable text-uppercase my-5 my-lg-0" title="Login" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>

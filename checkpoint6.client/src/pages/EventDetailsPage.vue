@@ -8,7 +8,7 @@
           <div class="col-md-12 glass-card rounded p-3">
             <div class="row">
               <div class="col-md-5">
-                <img class="img-fluid rounded" :src="event.coverImg" alt="Event Image" title="Event Image">
+                <img class="img-fluid rounded" :src="event.coverImg" alt="event-image" title="Event Image">
               </div>
               <div class="col-md-7 d-flex flex-column justify-content-between">
                 <div class="text-start">
@@ -22,7 +22,8 @@
                   <div class="fs-4">{{ event.description }}</div>
                 </div>
                 <div class="text-end">
-                  <div class="fs-4">Available Tickets: <span class="accent-font ps-2"> {{ event.capacity }}</span></div>
+                  <div class="fs-4">Available Tickets: <span class="accent-font ps-2 fs-2"> {{ event.capacity }}</span>
+                  </div>
                   <div v-if="event.isCanceled">
                     <button class="btn btn-warning my-1" disabled>
                       Event Canceled
