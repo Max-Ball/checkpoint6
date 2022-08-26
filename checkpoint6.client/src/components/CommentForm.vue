@@ -1,12 +1,12 @@
 <template>
   <div>
     <form class="text-center" @submit.prevent="addComment()">
-      <textarea class="container-fluid" name="" id="" rows="3" v-model="editable.body"
+      <textarea class="container-fluid elevation-4 rounded" name="" id="" rows="3" v-model="editable.body"
         placeholder="Add your comment here..."></textarea><br>
       <div class="text-end">
         <div>
           <button class="btn btn-primary my-3 elevation-4" title="Add Comment">
-            <h5 class="m-0">Add Comment</h5>
+            <div class="m-0 fs-5">Add Comment</div>
           </button>
         </div>
       </div>

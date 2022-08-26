@@ -2,22 +2,24 @@
   <router-link :to="{ name: 'EventDetails', params: { eventId: event.id } }">
     <div :class="{ grayscale: event.isCanceled }" :title="event.name">
       <div class=" card card-border my-2">
-        <img :src="event.coverImg" class="card-img" alt="...">
+        <img :src="event.coverImg" class="card-img" alt="event-image" title="Event Image">
         <div class="card-img-overlay d-flex align-items-end justify-content-start p-0 py-0 m-0 container-fluid">
           <div class="glass-card rounded-bottom">
             <div class="px-3">
               <h2 class="card-title m-0">{{ event.name }}</h2>
-              <h5 class="card-text m-0">{{ new Date(event.startDate).toLocaleDateString() }}</h5>
+              <div class="card-text m-0 fs-5">{{ new Date(event.startDate).toLocaleDateString() }}</div>
               <div>
-                <h5 class="d-md-none d-block">{{ event.location }}</h5>
-                <h5 v-if="event.capacity > 0" class="text-end"><span class="text-primary fs-5">{{ event.capacity
-                }}</span> tickets left</h5>
-                <h3 v-else class="text-end text-danger">SOLD OUT!</h3>
+                <div class="d-md-none d-block fs-5">{{ event.location }}</div>
+                <div v-if="event.capacity > 0" class="text-end fs-5"><span class="text-primary fs-5">{{ event.capacity
+                }}</span> tickets left</div>
+                <div v-else class="text-end text-danger fs-3">SOLD OUT!</div>
               </div>
             </div>
-            <h4 v-if="event.isCanceled" class="card-text text-center rounded-bottom px-2 py-1 bg-danger">Event has been
+            <div v-if="event.isCanceled" class="fs-4 card-text text-center rounded-bottom px-2 py-1 bg-danger">Event
+              has
+              been
               cancelled
-            </h4>
+            </div>
           </div>
         </div>
       </div>

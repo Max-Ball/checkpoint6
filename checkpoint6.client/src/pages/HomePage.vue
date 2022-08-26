@@ -1,25 +1,32 @@
 <template>
   <div class="row">
-    <h1 class="my-2 title-font">Tower Events</h1>
-    <div class="col-md-12 category-bar">
+    <div class="my-2 title-font">Tower Events</div>
+    <div class="col-md-12 cover-img">
+      <h1 class="accent-font text-start m-5">
+        Get ahead of the scalpers.<br>
+        Reserve your seat now with<br>
+        real events for real people<br>
+      </h1>
+    </div>
+    <div class="col-md-12">
       <div class="row justify-content-evenly py-3">
-        <div class="col-md-2 pt-2 btn btn-outline-light m-0 elevation-4" @click="filterEvent = ''" title="All Events">
-          <h5 class="p-0 m-0">All</h5>
+        <div class="col-md-2 pt-2 btn m-0 elevation-4 my-2" @click="filterEvent = ''" title="All Events">
+          <div class="p-0 m-0 fs-4">All</div>
         </div>
-        <div class="col-md-2 pt-2 btn btn-outline-light m-0 elevation-4" @click="filterEvent = 'concert'"
-          title="Concert">
-          <h5 class="p-0 m-0">Concert</h5>
+        <div class="col-md-2 pt-2 btn m-0 elevation-4 my-2" @click="filterEvent = 'concert'" title="Concert">
+          <div class="p-0 m-0 fs-4">Concert</div>
         </div>
-        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4" @click="filterEvent = 'convention'"
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4 my-2" @click="filterEvent = 'convention'"
           title="Convention">
-          <h5 class="p-0 m-0">Convention</h5>
+          <div class="p-0 m-0 fs-4">Convention</div>
         </div>
-        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4" @click="filterEvent = 'sport'" title="Sport">
-          <h5 class="p-0 m-0">Sport</h5>
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4 my-2" @click="filterEvent = 'sport'"
+          title="Sport">
+          <div class="p-0 m-0 fs-4">Sport</div>
         </div>
-        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4" @click="filterEvent = 'digital'"
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4 my-2" @click="filterEvent = 'digital'"
           title="Digital">
-          <h5 class="p-0 m-0">Digital</h5>
+          <div class="p-0 m-0 fs-4">Digital</div>
         </div>
       </div>
     </div>
@@ -61,15 +68,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// .category-bar {
-//   background: #fff3b0;
-//   background: linear-gradient(90deg, #fff3b0 97%, rgba(50, 59, 79) 100%);
-// }
-
 .title-font {
   font-family: 'Righteous', cursive;
   font-size: 4em;
   color: rgb(240, 192, 0);
   text-shadow: 2px 2px 2px rgb(31, 29, 29);
+}
+
+.btn {
+  background-color: rgb(240, 192, 0) !important;
+  color: #171a1f !important;
+  border: none !important;
+}
+
+.btn:hover {
+  scale: 1.1;
+  color: #171a1f !important;
+}
+
+.cover-img {
+  min-height: 500px;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  background-image: url(https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
 }
 </style>

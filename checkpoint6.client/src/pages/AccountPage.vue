@@ -1,4 +1,5 @@
 <template>
+  <h1 class="my-2 title-font">Tower Events</h1>
   <div class="row">
     <h1 class="accent-font mt-4 p-3">MY EVENTS</h1>
     <div class="col-md-12">
@@ -43,9 +44,10 @@ export default {
 </script>
 
 <style scoped>
-.bg-card {
-  background: rgb(74, 78, 105);
-  background: linear-gradient(90deg, rgba(74, 78, 105, 1) 20%, rgba(50, 59, 79) 70%);
-  color: #f2e9e4;
+.title-font {
+  font-family: 'Righteous', cursive;
+  font-size: 4em;
+  color: rgb(240, 192, 0);
+  text-shadow: 2px 2px 2px rgb(31, 29, 29);
 }
 </style>

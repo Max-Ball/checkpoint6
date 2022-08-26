@@ -1,13 +1,10 @@
 <template>
-  <!-- <header>
-    <Navbar />
-  </header> -->
   <div class="container-fluid">
     <div class="row">
       <main class="col-md-11">
         <router-view />
       </main>
-      <div class="col-md-1 profile-bar text-center">
+      <div class="col-md-1 profile-bar text-center p-0 py-5">
         <Login />
         <ProfileBar />
       </div>
@@ -32,10 +29,4 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
-.profile-bar {
-  background: rgb(240, 192, 0);
-
-  height: 100vh;
-}
 </style>

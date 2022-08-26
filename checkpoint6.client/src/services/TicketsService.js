@@ -11,6 +11,7 @@ class TicketsService {
   async attendEvent(newTicket) {
     const res = await api.post('/api/tickets', newTicket)
     AppState.ticketHolders.push(res.data)
+    AppState.activeEvent.capacity--
   }
 
   async getTicketsByAccountId() {
@@ -21,6 +22,7 @@ class TicketsService {
   async refundTicket(ticketId) {
     const res = await api.delete(`/api/tickets/${ticketId}`)
     AppState.ticketHolders = AppState.ticketHolders.filter(t => t.id != ticketId)
+    AppState.activeEvent.capacity++
 
   }
 

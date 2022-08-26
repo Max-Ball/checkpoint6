@@ -6,7 +6,7 @@
     </button>
 
     <div class="dropdown my-2 my-lg-0" v-else>
-      <div class="dropdown-toggle selectable my-3" data-bs-toggle="dropdown" aria-expanded="false" id="authDropdown">
+      <div class="dropdown-toggle selectable my-3" data-bs-toggle="dropdown" id="authDropdown">
         <div class="text-center" v-if="account.picture || user.picture">
           <img :src="account.picture || user.picture" alt="account photo" title="Manage Account" height="75"
             class="rounded" /><br>
