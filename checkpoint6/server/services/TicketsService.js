@@ -9,15 +9,15 @@ class TicketsService {
   }
   async buyTicket(newTicket) {
     const event = await dbContext.Events.findById(newTicket.eventId)
-    // @ts-ignore
-    event.capacity -= 1
-    // @ts-ignore
-    await event.save()
 
     // @ts-ignore
     if (event.capacity <= 0) {
       throw new BadRequest('There are no more tickets available for this event')
     }
+    // @ts-ignore
+    event.capacity -= 1
+    // @ts-ignore
+    await event.save()
 
 
     const ticket = await dbContext.Tickets.create(newTicket)
