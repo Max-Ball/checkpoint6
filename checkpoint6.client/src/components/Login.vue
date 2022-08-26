@@ -1,6 +1,6 @@
 <template>
   <span class="navbar-text my-5">
-    <button class="btn selectable text-success lighten-30 text-uppercase my-5 my-lg-0" @click="login"
+    <button class="btn selectable text-success lighten-30 text-uppercase my-5 my-lg-0" title="Login" @click="login"
       v-if="!user.isAuthenticated">
       Login
     </button>
@@ -8,7 +8,8 @@
     <div class="dropdown my-2 my-lg-0" v-else>
       <div class="dropdown-toggle selectable my-3" data-bs-toggle="dropdown" aria-expanded="false" id="authDropdown">
         <div class="text-center" v-if="account.picture || user.picture">
-          <img :src="account.picture || user.picture" alt="account photo" height="75" class="rounded" /><br>
+          <img :src="account.picture || user.picture" alt="account photo" title="Manage Account" height="75"
+            class="rounded" /><br>
         </div>
       </div>
 

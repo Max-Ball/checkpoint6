@@ -5,7 +5,7 @@
         placeholder="Add your comment here..."></textarea><br>
       <div class="text-end">
         <div>
-          <button class="btn btn-primary my-3 elevation-4">
+          <button class="btn btn-primary my-3 elevation-4" title="Add Comment">
             <h5 class="m-0">Add Comment</h5>
           </button>
         </div>

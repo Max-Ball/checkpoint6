@@ -47,10 +47,6 @@ export default {
   filter: grayscale(1);
 }
 
-.bg-card {
-  background-color: #4a4e69 !important;
-  color: #f2e9e4 !important;
-}
 
 .glass-card {
   background: rgba(76, 66, 66, 0.4);

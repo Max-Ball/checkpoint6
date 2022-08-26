@@ -1,21 +1,24 @@
 <template>
   <div class="row">
     <h1 class="my-2 title-font">Tower Events</h1>
-    <div class="col-md-12 bg-dark category-bar">
-      <div class="row justify-content-evenly py-2">
-        <div class="col-md-2 pt-2 btn btn-outline-light m-0" @click="filterEvent = ''" title="All Events">
+    <div class="col-md-12 category-bar">
+      <div class="row justify-content-evenly py-3">
+        <div class="col-md-2 pt-2 btn btn-outline-light m-0 elevation-4" @click="filterEvent = ''" title="All Events">
           <h5 class="p-0 m-0">All</h5>
         </div>
-        <div class="col-md-2 pt-2 btn btn-outline-light m-0" @click="filterEvent = 'concert'" title="Concert">
+        <div class="col-md-2 pt-2 btn btn-outline-light m-0 elevation-4" @click="filterEvent = 'concert'"
+          title="Concert">
           <h5 class="p-0 m-0">Concert</h5>
         </div>
-        <div class="col-md-2 btn btn-outline-light pt-2 m-0" @click="filterEvent = 'convention'" title="Convention">
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4" @click="filterEvent = 'convention'"
+          title="Convention">
           <h5 class="p-0 m-0">Convention</h5>
         </div>
-        <div class="col-md-2 btn btn-outline-light pt-2 m-0" @click="filterEvent = 'sport'" title="Sport">
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4" @click="filterEvent = 'sport'" title="Sport">
           <h5 class="p-0 m-0">Sport</h5>
         </div>
-        <div class="col-md-2 btn btn-outline-light pt-2 m-0" @click="filterEvent = 'digital'" title="Digital">
+        <div class="col-md-2 btn btn-outline-light pt-2 m-0 elevation-4" @click="filterEvent = 'digital'"
+          title="Digital">
           <h5 class="p-0 m-0">Digital</h5>
         </div>
       </div>
@@ -58,10 +61,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.category-bar {
-  background: rgb(74, 78, 105);
-  background: linear-gradient(90deg, rgba(74, 78, 105, 1) 97%, rgba(50, 59, 79) 100%);
-}
+// .category-bar {
+//   background: #fff3b0;
+//   background: linear-gradient(90deg, #fff3b0 97%, rgba(50, 59, 79) 100%);
+// }
 
 .title-font {
   font-family: 'Righteous', cursive;

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <h2 class="bg-card mt-4 p-3">MY EVENTS</h2>
+    <h1 class="accent-font mt-4 p-3">MY EVENTS</h1>
     <div class="col-md-12">
       <div class="row">
         <div v-for="t in tickets" :key="t.id" class="col-md-3">

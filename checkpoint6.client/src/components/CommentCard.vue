@@ -5,7 +5,7 @@
         :title="comment.creator.name">
       <div class="bg-light text-dark rounded p-2 container-fluid">
         <h5 class="d-flex justify-content-between">{{ comment.creator.name }} <i v-if="comment.creatorId == account.id"
-            class="mdi mdi-delete selectable" title="delete comment" @click="deleteComment()"></i></h5>
+            class="mdi mdi-delete selectable" title="Delete Comment" @click="deleteComment()"></i></h5>
         {{ comment.body }}
       </div>
     </div>

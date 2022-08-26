@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #323b4f;
+  background-color: #335c67;
   font-family: 'Teko', sans-serif;
 }
 
@@ -45,19 +45,29 @@ form:invalid button[type="submit"] {
 
 .btn {
   background-color: rgb(240, 192, 0) !important;
-  border: 2px solid #323b4f !important;
+  color: #f2e9e4 !important;
+  text-shadow: 1px 1px 1px rgb(31, 29, 29);
+  border: none !important;
+}
+
+.btn:hover {
+  background-color: #171a1f !important;
   color: #f2e9e4 !important;
   text-shadow: 1px 1px 1px rgb(31, 29, 29);
 }
 
-.btn:hover {
-  background-color: #323b4f !important;
-  border: 2px solid rgb(240, 192, 0) !important;
+.accent-font {
   color: rgb(240, 192, 0) !important;
+  text-shadow: 1px 1px 1px rgb(31, 29, 29);
+  font-weight: 500;
+}
+
+.text-shadow {
   text-shadow: 1px 1px 1px rgb(31, 29, 29);
 }
 
-.accent-font {
-  color: rgb(240, 192, 0);
-  text-shadow: 1px 1px 1px rgb(31, 29, 29);
+.bg-card {
+  background-color: #fff3b0 !important;
+  color: #171a1f !important;
+  font-weight: bolder;
 }
